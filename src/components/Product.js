@@ -1,20 +1,34 @@
 import '../styles/Product.css'
+import { useStateValue } from '../StateProvider' 
 const Product = ({id,title,image,price,rating}) => {
+    const [{basket},dispatch] = useStateValue();
+    function addToBasket(){
+       dispatch({
+           type:'ADD_TO_BASKET',
+           item:{
+               id,
+               title,
+               image,
+               price,
+               rating,
+           },
+       })
+    }
     return (
         <div className='product'>
             <div className='product__info'>
                  <p>{title}</p> 
                 <p className='product__price'>
-                    <strong>{price}</strong>
                     <small>$</small>
+                    <strong>{price}</strong>
                 </p>
                 <div className='product__rating'>
                     {Array(rating).fill()
-                    .map((_)=>(<p>:star</p>))}
+                    .map((_)=>(<p>⭐</p>))}
                 </div>
             </div>
            <img src={image}/>
-           <button>Add to cart</button>
+           <button onClick={addToBasket}>Add to cart</button>
         </div>
     )
 }
