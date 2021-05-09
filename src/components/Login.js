@@ -27,25 +27,24 @@ const Login = () => {
         })
     }
     return (
-        <div className='login'>
+        <div className='login'>        
+            <div className='login__container'>
             <Link to='/'>
-             <img className='login__logo'
-             src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png'>
+             <img className='login__logo'>
              </img>    
             </Link>
-            <div className='login__container'>
-              <h1>Sign in</h1>
+              <h1>Shopmart</h1>
               <form>
-                <h5>E-mail</h5>
-                <input value={email} onChange={(e)=>setEmail(e.target.value)} type='email'/>
-                <h5>Password</h5>
-                <input value={password} onChange={(e)=>setPassword(e.target.value)} type='password'/>
+                <input value={email} placeholder='E-mail'
+                 onChange={(e)=>setEmail(e.target.value)} type='email'/>
+                <input value={password} placeholder='Password'
+                 onChange={(e)=>setPassword(e.target.value)} type='password'/>
                 <button type='submit' onClick={login}
                  className='login__signInButton'>Sign In</button>
               </form>
-              <p>By continuing, you agree to Amazon's Conditions of Use and Privacy Notice. </p>
+              {/* <p>By continuing, you agree to Amazon's Conditions of Use and Privacy Notice. </p> */}
               <button type='submit' onClick={register}
-              className='login__registerButton'>Create your Amazon account</button>
+              className='login__registerButton'>Create your account</button>
             </div>
         </div>
     )

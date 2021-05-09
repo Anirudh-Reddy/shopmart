@@ -1,5 +1,5 @@
 .header{
-    background-color: #131921;
+    background-color: rebeccapurple;
     display: flex;
     align-items: center;
     position: sticky;
@@ -8,16 +8,16 @@
 }
 .header__logo{
     width: 100px;
-    object-fit: contain;
-    margin: 0 20px;
-    margin-top: 18px;
+    margin: 10px 20px;
+    color: white;
 }
+
 .header__search{
     display: flex;
     flex: 1;
 }
 .header__searchIcon{
-    background-color: orange;
+    background-color: beige;
     padding: 5px;
     height: 22px !important;
 }
