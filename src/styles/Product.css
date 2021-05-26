@@ -12,6 +12,10 @@
     padding: 20px;
     border-radius: 3px;
 }
+.product:hover{
+    transition: 0.3s;
+    transform: scale(1.03);
+}
 .product__rating{
     display: flex;
 }

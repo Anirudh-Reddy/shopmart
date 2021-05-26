@@ -11,6 +11,9 @@ const Header = () => {
     if(user){
       if(window.confirm('Are you sure you want to logout?'))
       auth.signOut();
+      dispatch({
+        type:'CLEAR_BASKET',
+    })
     }
   }
     return (

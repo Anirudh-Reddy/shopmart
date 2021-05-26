@@ -3,6 +3,12 @@ import { useStateValue } from '../StateProvider'
 const Product = ({id,title,image,price,rating}) => {
     const [{basket},dispatch] = useStateValue();
     function addToBasket(){
+      console.log(basket) 
+       let data = basket.some(b=>b.id==id)
+       if(data){
+         alert('Item Already added to cart')
+         return;
+       }
        dispatch({
            type:'ADD_TO_BASKET',
            item:{
@@ -11,6 +17,7 @@ const Product = ({id,title,image,price,rating}) => {
                image,
                price,
                rating,
+               quantity:1,
            },
        })
     }

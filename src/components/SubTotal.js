@@ -10,7 +10,7 @@ const SubTotal = () => {
              renderText = {(value)=>(
                 <>
                 <p> 
-                    SubTotal ({basket.length} items):<strong>{' '+value}</strong>)
+                    SubTotal ({basket.length}{basket.length>1?' items':' item'}):<strong>{' '+value}</strong>
                 </p>
                 </>
              )}

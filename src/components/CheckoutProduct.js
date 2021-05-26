@@ -8,9 +8,16 @@ const CheckoutProduct = ({id,title,image,price,rating}) => {
              id:id,
          })
     }
+    function changeQuantity(e){
+        dispatch({
+            type:'CHANGE_QUANTITY',
+            id:id,
+            quantity:e.target.value,
+        })
+    }
     return (
         <div className='checkoutProduct'>
-            <img className='checkoutProduct__image' src={image} />
+            <div><img className='checkoutProduct__image' src={image} /></div>
             <div className='checkoutProduct__info'>
               <p className='checkoutProduct__title'>{title}</p>
               <p className='checkoutProduct__price'>
@@ -21,7 +28,11 @@ const CheckoutProduct = ({id,title,image,price,rating}) => {
                     {Array(rating).fill()
                     .map((_)=>(<p>⭐</p>))}
                 </div>
-            <button onClick={removeProduct} className='checkoutProduct__botton'>Remove from basket</button>
+               <div>
+               <label className='checkoutProduct__quantity'>Quantity </label>    
+               <input className='checkoutProduct__quantityInput' onChange={changeQuantity} 
+               min='1' defaultValue={1} type='number' /> </div>
+               <button onClick={removeProduct} className='checkoutProduct__botton'>Remove from basket</button>
             </div>
         </div>
     )
