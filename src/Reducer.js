@@ -6,8 +6,6 @@ export const getBasketTotal=(basket)=>{
   return basket?.reduce((amount,item)=>(item.price*item.quantity)+amount,0)
 }
 function reducer(state,action){
-   // console.log(state)
-    console.log(action)
     switch(action.type){
       case 'SET_USER':
           return {
@@ -15,7 +13,6 @@ function reducer(state,action){
               user:action.user
           }
       case 'ADD_TO_BASKET':
-          console.log('a :',state)
           return {
               ...state,
               basket: [...state.basket,action.item],
@@ -27,11 +24,10 @@ function reducer(state,action){
               basket:newBasket,
             }
        case 'CLEAR_BASKET':
-           console.log('cb:',state)
            return {
               ...state,
               basket:[],
-            }
+            } 
         case 'CHANGE_QUANTITY':
             let newQuantity = [...state.basket].find(item=>item.id==action.id)
             newQuantity.quantity = action.quantity

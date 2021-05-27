@@ -1,6 +1,6 @@
 import '../styles/CheckoutProduct.css'
 import { useStateValue } from '../StateProvider' 
-const CheckoutProduct = ({id,title,image,price,rating}) => {
+const CheckoutProduct = ({id,title,image,price,rating,quantity,hideButton}) => {
     const [{basket},dispatch] = useStateValue();  
     function removeProduct(){
          dispatch({
@@ -28,11 +28,17 @@ const CheckoutProduct = ({id,title,image,price,rating}) => {
                     {Array(rating).fill()
                     .map((_)=>(<p>⭐</p>))}
                 </div>
-               <div>
-               <label className='checkoutProduct__quantity'>Quantity </label>    
-               <input className='checkoutProduct__quantityInput' onChange={changeQuantity} 
-               min='1' defaultValue={1} type='number' /> </div>
-               <button onClick={removeProduct} className='checkoutProduct__botton'>Remove from basket</button>
+               {hideButton && (
+                   <p>Quantity: {quantity}</p>
+               )}
+               {!hideButton && (
+                   <div>
+                   <label className='checkoutProduct__quantity'>Quantity </label>    
+                   <input className='checkoutProduct__quantityInput' onChange={changeQuantity} 
+                    min='1' defaultValue={1} type='number' /> 
+                    <div><button onClick={removeProduct} className='checkoutProduct__button'>Remove from basket</button></div>
+                 </div>
+               )}
             </div>
         </div>
     )

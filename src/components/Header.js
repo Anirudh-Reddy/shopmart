@@ -28,22 +28,16 @@ const Header = () => {
          <div className='header__nav'>
            <Link to={!user && '/login'} className='header__link'>
             <div onClick={login} className='header__option'>
-            <span className='header__optionLineOne'>Hello {user?.email}</span>
+            <span className='header__optionLineOne'>Hello {user ? user.email : 'Guest'}</span>
             <span className='header__optionLineTwo'>{user ? 'Sign out' : 'Sign In'}</span>
             </div>
            </Link>
-           <Link to='/' className='header__link'>
+           <Link to='/orders' className='header__link'>
             <div className='header__option'>
             <span className='header__optionLineOne'>Returns</span>
             <span className='header__optionLineTwo'>& Orders</span>
             </div>
            </Link>
-           {/* <Link to='/' className='header__link'>
-            <div className='header__option'>
-            <span className='header__optionLineOne'>Your</span>
-            <span className='header__optionLineTwo'>Prime</span>
-            </div>
-           </Link> */}
            <Link to='/checkout' className='header__link'>
            <div className='header__optionBasket'>
              <ShoppingBasketIcon/>
